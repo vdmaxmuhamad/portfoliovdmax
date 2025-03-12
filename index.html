@@ -64,30 +64,7 @@
                 <div class="bg-white shadow-md p-4 hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg">
                     <h3 class="text-xl font-bold mt-4">Editor Video</h3>
                     <p class="mt-2">Dari Awal nya Hoby jadi kerjaan, yang saya kerjakan lumayan banyak, ada di offline dan di online, nah ini beberapa Proyek yang pernah saya kerjakan.</p>
-                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded" onclick="showVideos()">Lihat Detail</button>
-                    <div id="videoList" class="hidden mt-4 space-y-2">
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/IiJQCTsIVgU" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/b9JGT8zx-Eg" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/eDfBlcbi0O8" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/e6oQ5l7US04" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/JCbirLl5q1o" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/s9-peC6lmLg" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/TXWOyGcP8sI" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                    <a href="editor-video.html" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded inline-block">Lihat Detail</a>
                 </div>
                 <div class="bg-white shadow-md p-4 hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg">
                     <img src="images/project2.jpg" alt="Proyek 2" class="w-full h-48 object-cover rounded-t-lg">
@@ -177,15 +154,6 @@
                 }
             });
         });
-
-        function showVideos() {
-            var videoList = document.getElementById('videoList');
-            if (videoList.classList.contains('hidden')) {
-                videoList.classList.remove('hidden');
-            } else {
-                videoList.classList.add('hidden');
-            }
-        }
     </script>
 </body>
 </html>
