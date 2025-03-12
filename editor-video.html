@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .sticky-header { transition: all 0.3s ease-in-out; }
+        .scrolled { background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header id="header" class="bg-white shadow-md py-4 fixed w-full z-10 sticky-header">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-2xl font-bold">Nama Kamu</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html#about" class="hover:text-blue-500"><i class="fas fa-user"></i> Tentang Saya</a></li>
+                    <li><a href="index.html#projects" class="hover:text-blue-500"><i class="fas fa-briefcase"></i> Proyek</a></li>
+                    <li><a href="index.html#contact" class="hover:text-blue-500"><i class="fas fa-envelope"></i> Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="videos" class="container mx-auto py-20 px-6 fade-in">
+        <h2 class="text-3xl font-bold text-center">Editor Video</h2>
+        <p class="mt-4 text-center">Berikut adalah beberapa video tutorial tentang editor video:</p>
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/IiJQCTsIVgU" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/b9JGT8zx-Eg" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/eDfBlcbi0O8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/e6oQ5l7US04" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/JCbirLl5q1o" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/s9-peC6lmLg" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="https://www.youtube.com/embed/TXWOyGcP8sI" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2025 Nama Kamu</p>
+    </footer>
+    
+    <script>
+        window.addEventListener("scroll", function() {
+            var header = document.getElementById("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
