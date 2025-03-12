@@ -13,6 +13,18 @@
         .scrolled { background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.show { opacity: 1; transform: translateY(0); }
+        .bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -21,9 +33,9 @@
             <h1 class="text-2xl font-bold">Nama Kamu</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="#about" class="hover:text-blue-500">Tentang Saya</a></li>
-                    <li><a href="#projects" class="hover:text-blue-500">Proyek</a></li>
-                    <li><a href="#contact" class="hover:text-blue-500">Kontak</a></li>
+                    <li><a href="#about" class="hover:text-blue-500"><i class="fas fa-user"></i> Tentang Saya</a></li>
+                    <li><a href="#projects" class="hover:text-blue-500"><i class="fas fa-briefcase"></i> Proyek</a></li>
+                    <li><a href="#contact" class="hover:text-blue-500"><i class="fas fa-envelope"></i> Kontak</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +43,7 @@
     
     <section id="hero" class="h-screen flex flex-col items-center justify-center text-center bg-blue-500 text-white relative fade-in">
         <div>
-            <h2 class="text-5xl font-bold">Selamat Datang di Portofolio Saya</h2>
+            <h2 class="text-5xl font-bold bounce">Selamat Datang di Portofolio Saya</h2>
             <p class="mt-4 text-lg">Saya seorang <span class="font-semibold">Web Developer</span> yang siap membantu proyek Anda!</p>
             <a href="#projects" class="mt-6 inline-block bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition">Lihat Proyek</a>
         </div>
@@ -41,7 +53,7 @@
         <h2 class="text-3xl font-bold text-center">Tentang Saya</h2>
         <p class="mt-4 text-center">Saya memiliki pengalaman di bidang pengembangan web dan teknologi.</p>
         <div class="flex justify-center mt-6">
-            <img src="https://raw.githubusercontent.com/bradtraversy/design-resources-for-developers/master/img/design-resources.png" alt="Design Resources" class="rounded-lg shadow-lg">
+            <img src="https://source.unsplash.com/random/800x600" alt="Stock Photo" class="rounded-lg shadow-lg">
         </div>
     </section>
     
@@ -53,16 +65,22 @@
                     <img src="images/project1.jpg" alt="Proyek 1" class="w-full h-48 object-cover rounded-t-lg">
                     <h3 class="text-xl font-bold mt-4">Proyek 1</h3>
                     <p class="mt-2">Deskripsi singkat proyek 1.</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Lihat Detail</button>
                 </div>
                 <div class="bg-white shadow-md p-4 hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg">
                     <img src="images/project2.jpg" alt="Proyek 2" class="w-full h-48 object-cover rounded-t-lg">
                     <h3 class="text-xl font-bold mt-4">Proyek 2</h3>
                     <p class="mt-2">Deskripsi singkat proyek 2.</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Lihat Detail</button>
                 </div>
                 <div class="bg-white shadow-md p-4 hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg">
                     <img src="https://raw.githubusercontent.com/bradtraversy/design-resources-for-developers/master/img/design-resources.png" alt="Proyek 3" class="w-full h-48 object-cover rounded-t-lg">
                     <h3 class="text-xl font-bold mt-4">Proyek 3</h3>
                     <p class="mt-2">Deskripsi singkat proyek 3.</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Lihat Detail</button>
+                </div>
+                <div class="bg-white shadow-md p-4 hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
@@ -82,6 +100,7 @@
         <p>&copy; 2025 Nama Kamu</p>
     </footer>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         window.addEventListener("scroll", function() {
             var header = document.getElementById("header");
@@ -104,6 +123,36 @@
 
             fadeElements.forEach(element => {
                 observer.observe(element);
+            });
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Proyek 1', 'Proyek 2', 'Proyek 3'],
+                    datasets: [{
+                        label: 'Jumlah Pengguna',
+                        data: [12, 19, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
             });
         });
     </script>
